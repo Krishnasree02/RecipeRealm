@@ -1,0 +1,91 @@
+<?php
+include('connection.php');
+include('login.php');
+if(!isset($_SESSION['username'])){
+    header('Location:login.php')
+    exit();
+}
+$username=$_SESSION['username']
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+    <style>
+       body {
+            /* Replace 'your-background-image.jpg' with the correct path and filename of your background image */
+            background-image: url('bg1.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+
+        .message {
+            font-size: 50px;
+            text-align: center;
+            margin-bottom: 20px;
+            /* Adjust the text color to make it more visible on the background */
+            color: #333; 
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .options {
+            display: flex;
+            gap: 20px;
+        }
+
+        .options button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #2f0303;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Styles for the user icon */
+        .user-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+    <title>Login Page</title>
+</head>
+<body>
+    <!-- Font Awesome user icon -->
+    <i class="fas fa-user user-icon"></i>
+
+    <div class="message">Login Successful</div>
+    <div class="options">
+        <button onclick="redirectToview()">View recipe</button>
+        <button onclick="redirectToadd()">Add Recipe</button>
+    </div>
+    
+
+    <script>
+        function redirectToadd() {
+            // Replace 'https://your-login-website.com' with the actual URL you want to redirect to for login
+            window.location.href = 'http://127.0.0.1/RecipeRealm/OLD/adding%20recipe.html';
+        }
+
+        function redirectToview() {
+            // Replace 'https://your-recipe-website.com' with the actual URL you want to redirect to for adding a recipe
+            window.location.href = 'http://127.0.0.1/RecipeRealm/OLD/browse.php';
+        }
+    </script>
+</body>
+</html>

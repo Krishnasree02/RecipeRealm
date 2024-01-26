@@ -1,0 +1,31 @@
+<html>
+<head></head>
+<body>
+    welcome
+    <?php
+    include 'connection.php';
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $uname = $_POST["username"];
+        $eid = $_POST["emailid"];
+        $pw1 = $_POST["password1"];
+        $pw2 = $_POST["password2"];
+
+        echo $uname, $eid, $pw1, $pw2;
+
+        $query = "INSERT INTO recipe (username, emailid, password1) VALUES ('$uname', '$eid', '$pw1')";
+        $connect->query($query);
+
+        if ($pw1 == $pw2) {
+            echo "Registration successful";
+            echo "</br>";
+            ?>
+            <a href="login.html">Login </a>
+            <?php
+        } else {
+            echo "Password mismatch";
+        }
+    }
+    ?>
+</body>
+</html>
